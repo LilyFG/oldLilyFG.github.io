@@ -23,17 +23,22 @@
 	var n_pumps = 0
 	var value = Math.floor(Math.random() * (30-10))+10
 
-	var intstructions = {
+	var timeline = []
+		
+	var inst = {
 		type: 'text',
-		text: '<p>Welcome to the balloons game! Press "z" to play. </p>' +
-				"<div class='left center-content'><img src='img/rabc.png'></img>",
+		text: "<div class='left'><img src='img/rabC.bmp' height='400' width='200'></img></div>" +
+		"<div class='right'><p>Welcome to the balloons game!<p><p>In this game, you will help the rabbit to blow up <p><p>balloons by telling her how many times to pump the balloon. <p><p>You will be rewarded for each pump you make. <p><p>The amount of reward will change with each balloon. <p><p>For example, one balloon might be worth 12p per pump, <p><p>so if you make four pumps, you would get 48p for that balloon.<p><p>If you pump the balloon too much, it will burst. <p><p>Then you will not get any reward for that balloon. <p><p>The balloon may burst anywhere between 1 and 12 pumps. <p><p>It's totally random!</p></p>Press 'z' to play.</p>"
+				,
 		choices: [90]
-				}
+		}
+				
+	timeline.push(inst)
   
   var block = {
     type: 'text',
     text: function() {
-		return "<p>This balloon is worth <font color = 'red'>" + value + "p</font> for each pump.</p><p>How many pumps would you like to make?</p><p>Press \'space\' to add a pump or \'z\' to place your bet.</p><p><font size=36><font color='red'>" + n_pumps + "</font></font> pumps</p>";
+		return "<p>The next balloon is worth <font color = 'red'>" + value + "p</font> for each pump.</p><p>How many pumps would you like to make?</p><p>Press \'space\' to add a pump or \'z\' to place your bet.</p><p><font size=36><font color='red'>" + n_pumps + "</font></font> pumps</p>";
 	},
 	timing_post_trial: 0,
 	choices: [32, 90]
@@ -107,9 +112,6 @@
       labels: [scale_1] // need one scale for every question on a page
   };
 		
-			
-	var trial_timeline = [pump_loop_node, setup_trial, loop_node, outcome_trial, rating_trial]
-	
 	
 	var BART_loop = {
 		timeline: [pump_loop_node, setup_trial, loop_node, outcome_trial, rating_trial],
@@ -130,10 +132,12 @@
 		}
 	}
 	
+	timeline.push(BART_loop)
+	
 
   jsPsych.init({
     display_element: $('#jspsych-target'),
-    timeline: [instructions, BART_loop],
+    timeline: timeline,
     on_finish: function(){jsPsych.data.displayData(); }
   });
 
