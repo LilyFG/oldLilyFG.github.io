@@ -22,7 +22,7 @@
 							this.data('x', params.x );    this.data('y', params.y );
 							this.data('ibb', this.getBBox() );
 							this.data('ot', this.transform().local );
-							this.drag( limitMoveDrag, limitStartDrag );
+							this.drag( limitMoveDrag, limitStartDrag, limitFinishDrag );
 							return this;    
 					};
 
@@ -47,47 +47,31 @@
 					function limitStartDrag( x, y, ev ) {
 							this.data('ox', this.data('x')); this.data('oy', this.data('y'));
 					};
+					
+					function limitFinishDrag() {
+								bb = this.getBBox(); 
+								console.log(bb.cx);
+								}
 			  });
 			})();
 													
 
 
+			sad = s.image('../lily scripts/img/img02.bmp', 150, 50, 100, 100)
+			happy = s.image('../lily scripts/img/img01.bmp', 750, 50, 100, 100)
+			line = s.polyline(300, 100, 700, 100).attr({ stroke: '#000', 'strokeWidth': 3})
+			marker = s.polygon(500, 103, 510, 120, 490, 120).attr({fill: '#000'}).limitDrag({ x: 0, y: 0, minx: -200, miny: 0, maxx: 220, maxy: 0 })
+			<!-- var bb = marker.getBBox(); -->
+			<!-- console.log(bb.cx) -->
 			
-			line = s.polyline(100, 100, 500, 100).attr({ stroke: '#000', 'strokeWidth': 3})
-			marker = s.polygon(300, 103, 310, 120, 290, 120).attr({fill: '#000'}).limitDrag({ x: 0, y: 0, minx: -200, miny: 0, maxx: 220, maxy: 0 })
-			
-			<!-- var move = function(dx) { -->
-				<!-- bb = 300 -->
-				<!-- if(100<=bb && bb<=500){ -->
-					
-					<!-- this.attr({ -->
-						<!-- transform: this.data('origTransform') + (this.data('origTransform') ? "T" : "t") + [dx] -->
-					<!-- }); -->
-					<!-- var bb = this.getBBox();	 -->
-					 
-				<!-- } else {  -->
-				
-				<!-- stop() -->
-				<!-- console.log(bb.cx) -->
-				
-				<!-- } -->
-			<!-- } -->
 
-			<!-- var start = function() { -->
-					<!-- this.data('origTransform', this.transform().local ); -->
-			<!-- } -->
-			<!-- var stop = function() { -->
-					<!-- console.log('finished dragging'); -->
-			<!-- } -->
-
-			<!-- marker.drag(move, start, stop ); -->
 						
 		}																				
    
 		</script>
     </head>
 	<body>
-		<svg width="800" height="800" id="svg"></svg> 
+		<svg width="1000" height="800" id="svg"></svg> 
     </body>
 </html>
 © 2017 GitHub, Inc.
