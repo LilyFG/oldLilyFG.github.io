@@ -12,7 +12,7 @@
 			var s = Snap("#svg");
 			var g = s.group();
 			var rab = Snap.load("rab_pull.svg", function ( loadedFragment ) {
-				g.append(loadedFragment);
+				g.append( loadedFragment );
 				g.drag(move, start, stop );
 			})
 			var move = function(dx,dy) {
