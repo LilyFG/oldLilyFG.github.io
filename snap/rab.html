@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Snap</title>
+        <style media="screen">
+        body {
+        }
+        </style>
+        <script src="snap.svg-min.js"></script>
+        <script>
+			var s = Snap("#svgout");
+			var tux = Snap.load("rab_pull.svg", function ( loadedFragment ) {
+																				s.append( loadedFragment );
+																				} );
+
+   
+		</script>
+    </head>
+	<body>
+    </body>
+</html>
