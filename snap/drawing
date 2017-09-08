@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Snap</title>
+        <style media="screen">
+        body {
+        }
+        </style>
+        <script src="snap.svg-min.js"></script>
+        <script>
+		window.onload = function() {
+			var s = Snap("#svg");
+			line = s.polyline(100, 100, 500, 100).attr({ stroke: '#000', 'strokeWidth': 3})
+		
+		}																				
+   
+		</script>
+    </head>
+	<body>
+		<svg width="800" height="800" id="svg"></svg> 
+    </body>
+</html>
+© 2017 GitHub, Inc.
