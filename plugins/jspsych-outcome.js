@@ -92,7 +92,7 @@ jsPsych.plugins["outcome"] = (function() {
 		
 	// run timeout function
 	var t1 = setTimeout(function() {
-        paper.text(25, 340, "Press 'P' to pay 1p to see where that balloon burst or 'z' to continue");
+        paper.text(25, 340, "Press 'p' to pay 1p to see where that balloon burst or 'z' to continue");
 		
 		// start the response listener
 		if (JSON.stringify(trial.choices) != JSON.stringify(["none"])) {
