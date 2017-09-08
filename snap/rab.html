@@ -12,12 +12,22 @@
 			var s = Snap("#svg");
 			var g = s.group();
 			var rab = Snap.load("rab_pull.svg", function ( loadedFragment ) {
-				g.append( loadedFragment );
-				g.hover( hoverover, hoverout );
-                                g.text(300,100, 'hover over me');
+				g.drag(move, start, stop );
 			})
-			var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
-			var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
+			var move = function(dx,dy) {
+				this.attr({
+					transform: this.data('origTransform') + (this.data('origTransform') ? "T" : "t") + [dx, dy]
+				});
+			}
+
+			var start = function() {
+				this.data('origTransform', this.transform().local );
+			}
+			var stop = function() {
+				console.log('finished dragging');
+			}
+
+		
 		}																				
 
    
