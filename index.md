@@ -4,4 +4,6 @@
 
 [Counterfactual BART](lily scripts/index.html)
 
-[Try Snap](snap/rab.html)
+[Load svg](snap/rab.html)
+
+[Drawing](snap/drawing.html)
