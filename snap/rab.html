@@ -9,7 +9,9 @@
         <script src="snap.svg-min.js"></script>
         <script>
 			var s = Snap("#svgout");
-			var tux = Snap.load("rab_pull.svg", function ( loadedFragment ) {
+			var rab = Snap.load("rab_pull.svg", function ( loadedFragment ) {
+				s.append( loadedFragment )
+			}
 																				s.append( loadedFragment );
 																				} );
 
