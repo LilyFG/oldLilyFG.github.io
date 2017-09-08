@@ -27,10 +27,8 @@
 		
 	var inst = {
 		type: 'text',
-		text: "<div class='left'><img src='img/rabC.bmp' height='400' width='200'></img></div>" +
-		"<div class='right'><p>Welcome to the balloons game!<p><p>In this game, you will help the rabbit to blow up <p><p>balloons by telling her how many times to pump the balloon. <p><p>You will be rewarded for each pump you make. <p><p>The amount of reward will change with each balloon. <p><p>For example, one balloon might be worth 12p per pump, <p><p>so if you make four pumps, you would get 48p for that balloon.<p><p>If you pump the balloon too much, it will burst. <p><p>Then you will not get any reward for that balloon. <p><p>The balloon may burst anywhere between 1 and 12 pumps. <p><p>It's totally random!</p></p>Press 'z' to play.</p>"
-				,
-		choices: [90]
+		text: "<div class='left'><img src='img/rabC.bmp' height='500' width='250'></img></div>" +
+		"<div class='right'><p class='large'><b>Welcome to the balloons game!</b></p><p>In this game, you will help the rabbit to blow up <p><p>balloons by telling her how many times to pump. <p><p>You will be rewarded for each pump you make. <p><p>The amount of reward will change with each balloon. <p><p>For example, one balloon might be worth 12p per pump, <p><p>so if you make four pumps, you would get 48p for that balloon.<p><p>If you pump the balloon too much, it will burst. <p><p>Then you will not get any reward for that balloon. <p><p>The balloon may burst anywhere between 1 and 12 pumps. <p><p>It's totally random!</p></p><b>Press any key to play.</b></p>"
 		}
 				
 	timeline.push(inst)
@@ -48,12 +46,12 @@
     timeline: [block],
     loop_function: function(data){
       if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('space') == data[0].key_press){
-		if(n_pumps < 12 ){
+		if(n_pumps < 12){
 			n_pumps = n_pumps + 1;
 			}
         return true;
       } else {
-	  if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('z') != data[0].key_press){
+	  if((jsPsych.pluginAPI.convertKeyCharacterToKeyCode('z') != data[0].key_press) || (n_pumps == 0)) {
 		return true;
 		}else{
         return false;
