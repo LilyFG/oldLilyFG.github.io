@@ -109,6 +109,7 @@
 			
 	var trial_timeline = [pump_loop_node, setup_trial, loop_node, outcome_trial, rating_trial]
 	
+	
 	var BART_loop = {
 		timeline: [pump_loop_node, setup_trial, loop_node, outcome_trial, rating_trial],
 		loop_function: function(data){
@@ -131,7 +132,7 @@
 
   jsPsych.init({
     display_element: $('#jspsych-target'),
-    timeline: [BART_loop],
+    timeline: [instructions, BART_loop],
     on_finish: function(){jsPsych.data.displayData(); }
   });
 
