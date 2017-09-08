@@ -10,17 +10,20 @@
         <script>
 		window.onload = function() {
 			var s = Snap("#svg");
-			var paper = Snap("#svg");
-				circle = paper.circle(100, 50, 10);
+			var g = s.group();
 			var rab = Snap.load("rab_pull.svg", function ( loadedFragment ) {
-				s.append( loadedFragment )
+				g.append( loadedFragment );
+				g.hover( hoverover, hoverout );
+                                g.text(300,100, 'hover over me');
 			})
+			var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
+			var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 		}																				
 
    
 		</script>
     </head>
 	<body>
-		<svg width="300" height="600" id="svg"></svg> 
+		<svg width="800" height="800" id="svg"></svg> 
     </body>
 </html>
