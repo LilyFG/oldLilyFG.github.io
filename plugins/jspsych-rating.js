@@ -47,7 +47,7 @@ jsPsych.plugins["rating"] = (function() {
 
       };
     
-      
+      (function() {
       Snap.plugin( function( Snap, Element, Paper, global ) {
 
 					Element.prototype.limitDrag = function( params ) {
