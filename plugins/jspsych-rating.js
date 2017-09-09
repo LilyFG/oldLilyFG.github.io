@@ -36,8 +36,9 @@ jsPsych.plugins["rating"] = (function() {
 
           // data saving
           var trial_data = {
+		// **needs fixing
             final_pos: bb.cx-200
-	    console.log(bb.cx-200);
+	    //console.log(bb.cx-200);
           };
 		
 	  // clear the display
@@ -85,13 +86,14 @@ jsPsych.plugins["rating"] = (function() {
 					};
 					
 					function limitFinishDrag() {
-								return bb = this.getBBox(); 
+						//** needs fixing
+								//return bb = this.getBBox(); 
 								}
 			  });
 			})();
 													
 
-
+			text = s.text(0,20,"Rate your emotions by dragging the marker. Then press 'space'.")
 			sad = s.image(trial.anchorImages[0], 0, 50, 100, 100)
 			happy = s.image(trial.anchorImages[1], 650, 50, 100, 100)
 			line = s.polyline(200, 100, 600, 100).attr({ stroke: '#000', 'strokeWidth': 3})
