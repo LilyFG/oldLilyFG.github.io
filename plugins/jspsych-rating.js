@@ -36,7 +36,8 @@ jsPsych.plugins["rating"] = (function() {
 
           // data saving
           var trial_data = {
-            final_pos: bb.cx
+            final_pos: bb.cx-200
+	    console.log(bb.cx-200);
           };
 		
 	  // clear the display
@@ -85,17 +86,16 @@ jsPsych.plugins["rating"] = (function() {
 					
 					function limitFinishDrag() {
 								bb = this.getBBox(); 
-								console.log(bb.cx);
 								}
 			  });
 			})();
 													
 
 
-			sad = s.image(trial.anchorImages[0], 150, 50, 100, 100)
-			happy = s.image(trial.anchorImages[1], 750, 50, 100, 100)
-			line = s.polyline(300, 100, 700, 100).attr({ stroke: '#000', 'strokeWidth': 3})
-			marker = s.polygon(500, 103, 510, 120, 490, 120).attr({fill: '#000'}).limitDrag({ x: 0, y: 0, minx: -200, miny: 0, maxx: 220, maxy: 0 })
+			sad = s.image(trial.anchorImages[0], 0, 50, 100, 100)
+			happy = s.image(trial.anchorImages[1], 650, 50, 100, 100)
+			line = s.polyline(200, 100, 600, 100).attr({ stroke: '#000', 'strokeWidth': 3})
+			marker = s.polygon(400, 103, 410, 120, 390, 120).attr({fill: '#000'}).limitDrag({ x: 0, y: 0, minx: -200, miny: 0, maxx: 220, maxy: 0 })
 			
       // start the response listener
       if (JSON.stringify(trial.choices) != JSON.stringify(["none"])) {
