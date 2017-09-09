@@ -36,7 +36,7 @@ jsPsych.plugins["rating"] = (function() {
 
           // data saving
           var trial_data = {
-            final_pos: bb.cx-200
+            //final_pos: bb.cx-200
           };
 		
 	  // clear the display
@@ -84,7 +84,7 @@ jsPsych.plugins["rating"] = (function() {
 					};
 					
 					function limitFinishDrag() {
-						return bb = this.getBBox(); 
+						//return bb = this.getBBox(); 
 								}
 			  });
 			})();
