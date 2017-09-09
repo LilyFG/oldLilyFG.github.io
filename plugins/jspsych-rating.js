@@ -37,6 +37,9 @@ jsPsych.plugins["rating"] = (function() {
           var trial_data = {
             final_pos: bb.cx
           };
+		
+	  // clear the display
+      	  display_element.html('');
 
           // end trial
           jsPsych.finishTrial(trial_data);
