@@ -91,8 +91,8 @@ jsPsych.plugins["rating"] = (function() {
 													
 
 
-			sad = s.image(trial.anchor-images[0], 150, 50, 100, 100)
-			happy = s.image(trial.anchor-images[1], 750, 50, 100, 100)
+			sad = s.image(trial.anchorImages[0], 150, 50, 100, 100)
+			happy = s.image(trial.anchorImages[1], 750, 50, 100, 100)
 			line = s.polyline(300, 100, 700, 100).attr({ stroke: '#000', 'strokeWidth': 3})
 			marker = s.polygon(500, 103, 510, 120, 490, 120).attr({fill: '#000'}).limitDrag({ x: 0, y: 0, minx: -200, miny: 0, maxx: 220, maxy: 0 })
 			
