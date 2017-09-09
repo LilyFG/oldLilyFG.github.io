@@ -85,7 +85,7 @@ jsPsych.plugins["rating"] = (function() {
 					};
 					
 					function limitFinishDrag() {
-								bb = this.getBBox(); 
+								return bb = this.getBBox(); 
 								}
 			  });
 			})();
