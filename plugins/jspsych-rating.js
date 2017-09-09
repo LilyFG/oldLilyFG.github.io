@@ -22,7 +22,7 @@ jsPsych.plugins["rating"] = (function() {
     // but in general it should be included
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
     
-        var s = Snap(800,800);
+        var s = Snap(1000,500);
     
         // function to end trial when it is time
         var end_trial = function() {
