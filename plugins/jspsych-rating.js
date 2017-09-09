@@ -27,10 +27,6 @@ jsPsych.plugins["rating"] = (function() {
         // function to end trial when it is time
         var end_trial = function() {
 
-          // kill any remaining setTimeout handlers
-          for (var i = 0; i < setTimeoutHandlers.length; i++) {
-            clearTimeout(setTimeoutHandlers[i]);
-          }
 
           // kill keyboard listeners
           if (typeof keyboardListener !== 'undefined') {
