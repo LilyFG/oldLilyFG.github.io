@@ -40,6 +40,7 @@ jsPsych.plugins["rating"] = (function() {
 		
 	  // clear the display
       	  display_element.html('');
+	  s.clear();
 
           // end trial
           jsPsych.finishTrial(trial_data);
