@@ -10,7 +10,7 @@ jsPsych.plugins["rating"] = (function() {
   plugin.trial = function(display_element, trial) {
 
     // set default values for parameters
-    trial.anchor-images = trial.anchor-images || ['img/img02.bmp','img/img01.bmp'];
+    trial.anchor-images = trial.anchor-images || [];
     trial.choices = trial.choices || [];
 
 
