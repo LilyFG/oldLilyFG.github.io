@@ -24,7 +24,7 @@
 	var reps = 0
 	var bal_size = 10
 	var n_pumps = 0
-	var value = Math.floor(Math.random() * (30-10))+10
+	var value = 10//Math.floor(Math.random() * (30-10))+10
 
 	var timeline = []
 		
@@ -71,7 +71,11 @@
 		type: 'snap',
 		size: function(){
 		    return bal_size
-		}
+		},
+		value: function(){return value*(reps)},
+		pullT: 400,
+		pushT: 400,
+		timing_post_trial: 800
 	}
 	
 	var loop_node = {
@@ -99,19 +103,21 @@
 						return "bust"
 					}},
 		choices: [80, 90],
-		bustSize: function(){return bust}
-		}
+		bustSize: function(){return bust},
+		bustValue: function(){return bust*value},
+		pumpValue: function(){return n_pumps*value}
+	}
 		
 
 
   // defining two different response scales that can be used.
   //var scale_1 = ["Very sad", "Quite sad", "Neither happy nor sad", "Quite happy", "Very happy"];
 
-  var rating_trial = {
-      	type: 'rating',
-	anchorImages: ['img/img02.bmp','img/img01.bmp'],
-	choices: [32]
-  };
+	  var rating_trial = {
+		type: 'rating',
+		anchorImages: ['img/img02.bmp','img/img01.bmp'],
+		choices: [32]
+	  };
 		
 	
 	var BART_loop = {

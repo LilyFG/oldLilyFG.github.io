@@ -22,8 +22,8 @@ jsPsych.plugins["rating"] = (function() {
     // but in general it should be included
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
     
-	display_element.append($("<svg id='jspsych-snap-canvas' width=" + 1000 + " height=" + 500 + "></svg>"));
-        var s = Snap("#jspsych-snap-canvas");
+	display_element.append($("<svg id='jspsych-rating-canvas' width=" + 1000 + " height=" + 300 + "></svg>"));
+        var s = Snap("#jspsych-rating-canvas");
     
         // function to end trial when it is time
         var end_trial = function() {

@@ -19,7 +19,7 @@ jsPsych.plugins["snap-setup"] = (function() {
     // but in general it should be included
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
 	
-	display_element.append($("<svg id='jspsych-snap-canvas' width=" + 1000 + " height=" + 500 + "></svg>"));
+	display_element.append($("<svg id='jspsych-snap-canvas' width=" + 1000 + " height=" + 350 + "></svg>"));
 	
 	var paper = Snap("#jspsych-snap-canvas");
 	

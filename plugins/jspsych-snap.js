@@ -12,7 +12,9 @@ jsPsych.plugins["snap"] = (function() {
 
     // set default values for parameters
     trial.size = trial.size || 100;
-    trial.text = trial.text || "1";
+    trial.value = trial.value || 0;
+	trial.pullT = trial.pullT || 300;
+	trial.pushT = trial.pushT || 300;
 
     // allow variables as functions
     // this allows any trial variable to be specified as a function
@@ -27,28 +29,32 @@ jsPsych.plugins["snap"] = (function() {
 
 
 	var paper = Snap("#jspsych-snap-canvas");
-	
+	console.log(trial.value)
 
 
-										
+							
 			
 	// create the balloon with a circle and a triangle
 	b = paper.circle(212 + trial.size, 298-trial.size, trial.size).attr({fill: '#00cc99'})
 	t = paper.polygon(220, 290, 205, 290, 220, 305).attr({fill: '#00cc99'})
-	
 
 		// show pull image
 		paper.image('img/rab_pull.bmp', 0, 0, 150, 300)
+		v = paper.text(75, 295, trial.value).attr({fill: '#FFFFFF',
+													'text-anchor': 'middle'})
+
 		// wait 300ms
-		b.animate({r: trial.size}, 300, mina.easeinout, function(){
+		b.animate({r: trial.size}, trial.pullT, mina.easeinout, function(){
 		
-		// show push image
-		paper.image('img/rab_push.bmp', 0, 0, 150, 300)
-		// animate ball growth for 300ms
-		b.animate({r: trial.size+10, 
-					cx: 222+trial.size,
-					cy: 288-trial.size
-					}, 300, mina.easeinout)
+			// show push image
+			paper.image('img/rab_push.bmp', 0, 0, 150, 300)
+			// animate ball growth for 300ms
+			b.animate({r: trial.size+10, 
+						cx: 222+trial.size,
+						cy: 288-trial.size
+						}, trial.pushT, mina.easeinout)
+			
+
 				
 		})
 	
