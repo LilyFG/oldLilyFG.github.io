@@ -62,7 +62,6 @@ jsPsych.plugins["snap"] = (function() {
 
     // data saving
     var trial_data = {
-      parameter_name: 'parameter value'
     };
 
     // end trial

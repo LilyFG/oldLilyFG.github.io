@@ -34,7 +34,7 @@ jsPsych.plugins["outcome"] = (function() {
 		jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
 	  }
 	
-	var end_trial = function() {
+/* 	var end_trial = function() {
 		console.log('ending')
 
       // kill any remaining setTimeout handlers
@@ -58,9 +58,10 @@ jsPsych.plugins["outcome"] = (function() {
       // move on to the next trial
       jsPsych.finishTrial(trial_data);
 	  
-    };
+    }; */
 	
 	var paper = Snap("#jspsych-snap-canvas");
+	var fb = 0
 	
 	// show pull image
 	paper.image('img/rab_pull.bmp', 0, 0, 150, 300)
@@ -119,6 +120,7 @@ jsPsych.plugins["outcome"] = (function() {
 										strokeWidth: 2,
 										strokeDasharray: "5,5"})
 			paper.text(500, 288 - trial.bustSize*20, trial.bustValue).attr({fill: "#FF0000"})
+			fb = 1
 
 			var t2 = setTimeout(function() {
 				end_trial();
@@ -143,7 +145,11 @@ jsPsych.plugins["outcome"] = (function() {
 
           // data saving
           var trial_data = {
-            //final_pos: bb.cx-200
+			  trial: trial_reps,
+			  fb: fb,
+			  rating: rating,
+			  n_pumps: n_pumps,
+			  bust: bust
           };
 		
 	  // clear the display
@@ -198,7 +204,9 @@ jsPsych.plugins["outcome"] = (function() {
 													
 
 			  	var after_rating = function() {
-					console.log(display_element.length)
+					
+					rating = marker._.transform.replace("t","").replace(",0", "")
+					console.log(rating)
 					s.clear()
 					paper.text(0, 340, "Press 'p' to pay 1p to see where that balloon burst or 'z' to continue");
 					
